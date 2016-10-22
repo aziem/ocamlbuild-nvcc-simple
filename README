@@ -3,4 +3,6 @@ Tiny example showing how to call nvcc CUDA compiler using ocamlbuild.
 At the moment it does not work out dependencies: my use case is to
 compile a single *.cu file to an object file to be statically linked
 with OCaml program to run code on a GPU. The plugin could be made more
-elaborate to handle dependencies etc. 
+elaborate to handle dependencies etc.
+
+Requires NVIDA CUDA SDK to be installed. 
