@@ -3,13 +3,17 @@
 #include <cuda_runtime.h>
 #include <math.h>
 
-void initialData(float *ip, int size) {
+extern "C" void initialData(float *ip, int size) {
   for (int i=0; i < size; i++) {
     ip[i] = (float)rand()/(float)(RAND_MAX/10.0);
   }
 }
 
-void print_matrix(float *c, const int nx, const int ny) {
+extern "C" void printHello(void) {
+  printf("HELLO from C\n");
+}
+
+extern "C" void print_matrix(float *c, const int nx, const int ny) {
   float *ic = c;
   for (int iy=0; iy<ny; iy++) {
     for (int ix=0; ix<nx; ix++) {
@@ -34,7 +38,7 @@ __global__ void print_thread_index(float* a, const int nx, const int ny) {
   
 }
 
-void test() {
+extern "C" void test() {
   int dev = 0;
   cudaSetDevice(dev);
 
