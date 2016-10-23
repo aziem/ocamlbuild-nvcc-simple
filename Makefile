@@ -1,5 +1,5 @@
 matrixIndex.o: matrixIndex.cu
-	ocamlbuild matrixIndex.o
+	ocamlbuild -use-ocamlfind matrixIndex.o
 
 test.native: test.ml matrixIndex.o
 	ocamlbuild -use-ocamlfind test.native
