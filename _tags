@@ -1,0 +1,2 @@
+"matrixIndex.cu": nvcc
+<test.*>: package(ctypes), package(ctypes.foreign), staticlinkopt

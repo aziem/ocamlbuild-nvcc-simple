@@ -15,6 +15,11 @@ let nvcc_rules nvcc =
 let () =
   dispatch begin function
              | Before_rules -> nvcc_rules "nvcc"
+             | After_rules ->
+                dep ["link"; "ocaml"; "native"; "staticlinkopt"] ["matrixIndex.o"];
+                flag["link"; "ocaml"; "native"; "staticlinkopt"]
+                    (S[A"-cclib";A"-lcudart"; A"-cclib";A"-lstdc++";  A"-cclib";A"-Wl,-E";])
+               
              | _ -> ()
            end
   
